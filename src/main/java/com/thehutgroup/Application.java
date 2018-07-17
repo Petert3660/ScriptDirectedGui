@@ -49,8 +49,8 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 
-        final String GUI_SCRIPT_FILE = "guiScript";
-        final String GUI_SCRIPT_FILE_COPY = "guiScriptLatest";
+        final String GUI_SCRIPT_FILE = "C:\\GradleTutorials\\ScriptDirectedGui\\src\\main\\resources\\guiScript";
+        final String GUI_SCRIPT_FILE_COPY = "C:\\GradleTutorials\\ScriptDirectedGui\\src\\main\\resources\\guiScriptLatest";
 
         if (!strings[0].contains("testGui") && !StringUtils.isEmpty(strings[1])) {
             if (strings[0].contains("copy")) {
@@ -69,12 +69,10 @@ public class Application implements CommandLineRunner {
                     }
                     copyGuiScript(strings[1] + "\\" + strings[2], GUI_SCRIPT_FILE_COPY);
                     System.exit(0);
-                } else {
-                    if (strings[0].contains("run")) {
-                        System.out.println("ScriptDirectedGui: Testing GUI!");
-                        testGui();
-                    }
                 }
+            } else if (strings[0].contains("run")) {
+                System.out.println("ScriptDirectedGui: Testing GUI!");
+                testGui();
             }
         } else {
             testGui();

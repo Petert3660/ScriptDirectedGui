@@ -3,22 +3,25 @@
 
 package com.thehutgroup.createdgui;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.io.File;
-import com.thehutgroup.guicomponents.*;
+import com.thehutgroup.guicomponents.FreeButton;
+import com.thehutgroup.guicomponents.FreeLabel;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 public class TestGui extends JFrame {
 
-    private static final String MAIN_HEADING = "GIT Branch Controller";
-    private static final String SUB_HEADING = "Main Dialog";
-    private static final String TITLE = MAIN_HEADING + " - " + SUB_HEADING;
+    private static final String MAIN_HEADING = "GIT Branch Creator";
+    private static final String TITLE = MAIN_HEADING;
     private static final int FRAME_X_SIZE = 600;
-    private static final int FRAME_Y_SIZE = 300;
-    private Color col = new Color(235, 255, 255);
+    private static final int FRAME_Y_SIZE = 400;
+    private Color col = new Color(230, 255, 255);
 
     private TestGui tg = this;
 
@@ -34,7 +37,7 @@ public class TestGui extends JFrame {
 
         FreeLabel l0 = new FreeLabel(MAIN_HEADING, 30, 30, 500, 20, new Font("", Font.BOLD + Font.ITALIC, 20));
 
-        FreeButton b0 = new FreeButton("Exit", 260, 200, 80);
+        FreeButton b0 = new FreeButton("Exit", 260, 300, 80);
 
 
         // This is the control for the Exit-implement button
@@ -55,25 +58,25 @@ public class TestGui extends JFrame {
 
     private void setUpMenuBar() {
         JMenu menu0 = new JMenu("File");
-        JMenuItem menuItem00 = new JMenuItem("Open File");
+        JMenuItem menuItem00 = new JMenuItem("Open");
         menu0.add(menuItem00);
-        JMenuItem menuItem01 = new JMenuItem("Close File");
+        JMenuItem menuItem01 = new JMenuItem("Close");
         menu0.add(menuItem01);
         menu0.addSeparator();
         JMenuItem menuItem03 = new JMenuItem("Exit");
         menu0.add(menuItem03);
 
-        // This is the control for the File\Open File menu item
+        // This is the control for the File\Open menu item
         menuItem00.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Open File in the File menu has been clicked");
+                System.out.println("Menu item - Open in the File menu has been clicked");
             }
         });
 
-        // This is the control for the File\Close File menu item
+        // This is the control for the File\Close menu item
         menuItem01.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Close File in the File menu has been clicked");
+                System.out.println("Menu item - Close in the File menu has been clicked");
             }
         });
 
@@ -85,37 +88,6 @@ public class TestGui extends JFrame {
         });
 
         menuBar.add(menu0);
-
-        JMenu menu1 = new JMenu("GIT Branch");
-        JMenuItem menuItem10 = new JMenuItem("Create New Branch");
-        menu1.add(menuItem10);
-        JMenuItem menuItem11 = new JMenuItem("Push Branch");
-        menu1.add(menuItem11);
-        JMenuItem menuItem12 = new JMenuItem("Delete Branch");
-        menu1.add(menuItem12);
-
-        // This is the control for the GIT Branch\Create New Branch menu item
-        menuItem10.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Create New Branch in the GIT Branch menu has been clicked");
-            }
-        });
-
-        // This is the control for the GIT Branch\Push Branch menu item
-        menuItem11.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Push Branch in the GIT Branch menu has been clicked");
-            }
-        });
-
-        // This is the control for the GIT Branch\Delete Branch menu item
-        menuItem12.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Delete Branch in the GIT Branch menu has been clicked");
-            }
-        });
-
-        menuBar.add(menu1);
 
     }
 
