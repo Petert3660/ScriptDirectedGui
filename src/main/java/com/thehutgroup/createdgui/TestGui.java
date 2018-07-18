@@ -17,10 +17,10 @@ import javax.swing.JPanel;
 
 public class TestGui extends JFrame {
 
-    private static final String MAIN_HEADING = "GIT Branch Creator";
+    private static final String MAIN_HEADING = "A Test Project";
     private static final String TITLE = MAIN_HEADING;
-    private static final int FRAME_X_SIZE = 600;
-    private static final int FRAME_Y_SIZE = 400;
+    private static final int FRAME_X_SIZE = 800;
+    private static final int FRAME_Y_SIZE = 600;
     private Color col = new Color(230, 255, 255);
 
     private TestGui tg = this;
@@ -37,7 +37,7 @@ public class TestGui extends JFrame {
 
         FreeLabel l0 = new FreeLabel(MAIN_HEADING, 30, 30, 500, 20, new Font("", Font.BOLD + Font.ITALIC, 20));
 
-        FreeButton b0 = new FreeButton("Exit", 260, 300, 80);
+        FreeButton b0 = new FreeButton("Exit", 360, 500, 80);
 
 
         // This is the control for the Exit-implement button
@@ -58,25 +58,25 @@ public class TestGui extends JFrame {
 
     private void setUpMenuBar() {
         JMenu menu0 = new JMenu("File");
-        JMenuItem menuItem00 = new JMenuItem("Open");
+        JMenuItem menuItem00 = new JMenuItem("Open File");
         menu0.add(menuItem00);
-        JMenuItem menuItem01 = new JMenuItem("Close");
+        JMenuItem menuItem01 = new JMenuItem("Close File");
         menu0.add(menuItem01);
         menu0.addSeparator();
         JMenuItem menuItem03 = new JMenuItem("Exit");
         menu0.add(menuItem03);
 
-        // This is the control for the File\Open menu item
+        // This is the control for the File\Open File menu item
         menuItem00.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Open in the File menu has been clicked");
+                System.out.println("Menu item - Open File in the File menu has been clicked");
             }
         });
 
-        // This is the control for the File\Close menu item
+        // This is the control for the File\Close File menu item
         menuItem01.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Close in the File menu has been clicked");
+                System.out.println("Menu item - Close File in the File menu has been clicked");
             }
         });
 
@@ -88,6 +88,69 @@ public class TestGui extends JFrame {
         });
 
         menuBar.add(menu0);
+
+        JMenu menu1 = new JMenu("Edit");
+        JMenuItem menuItem10 = new JMenuItem("Create");
+        menu1.add(menuItem10);
+        JMenuItem menuItem11 = new JMenuItem("Read");
+        menu1.add(menuItem11);
+        JMenuItem menuItem12 = new JMenuItem("Update");
+        menu1.add(menuItem12);
+        JMenuItem menuItem13 = new JMenuItem("Delete");
+        menu1.add(menuItem13);
+
+        // This is the control for the Edit\Create menu item
+        menuItem10.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - Create in the Edit menu has been clicked");
+            }
+        });
+
+        // This is the control for the Edit\Read menu item
+        menuItem11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - Read in the Edit menu has been clicked");
+            }
+        });
+
+        // This is the control for the Edit\Update menu item
+        menuItem12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - Update in the Edit menu has been clicked");
+            }
+        });
+
+        // This is the control for the Edit\Delete menu item
+        menuItem13.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - Delete in the Edit menu has been clicked");
+            }
+        });
+
+        menuBar.add(menu1);
+
+        JMenu menu2 = new JMenu("Help");
+        JMenuItem menuItem20 = new JMenuItem("Help");
+        menu2.add(menuItem20);
+        menu2.addSeparator();
+        JMenuItem menuItem22 = new JMenuItem("About");
+        menu2.add(menuItem22);
+
+        // This is the control for the Help\Help menu item
+        menuItem20.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - Help in the Help menu has been clicked");
+            }
+        });
+
+        // This is the control for the Help\About menu item
+        menuItem22.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - About in the Help menu has been clicked");
+            }
+        });
+
+        menuBar.add(menu2);
 
     }
 
