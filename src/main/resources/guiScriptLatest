@@ -1,16 +1,15 @@
-// This is a test GUI Script which will set up a Main GUI with a menu
+// This is a GUI Script that we are just trying out as part of testing
 
-dimension: xsize=600, ysize=300
+dimension: xsize=800, ysize=600
 
-backgroundcolor: value=235, 255, 255
+backgroundcolor: value=230, 255, 255
 
-heading: value=GIT Branch Controller
-
-subheading: value=Main Dialog
+heading: value=A Test Project
 
 menus:
     [File: Open File, Close File, -separator, Exit-implement]
-    [GIT Branch: Create New Branch, Push Branch, Delete Branch]
+    [Edit: Create, Read, Update, Delete]
+    [Help: Help, -separator, About]
 
 components:
 

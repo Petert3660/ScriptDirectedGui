@@ -3,22 +3,25 @@
 
 package com.thehutgroup.createdgui;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.io.File;
-import com.thehutgroup.guicomponents.*;
+import com.thehutgroup.guicomponents.FreeButton;
+import com.thehutgroup.guicomponents.FreeLabel;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 public class TestGui extends JFrame {
 
-    private static final String MAIN_HEADING = "GIT Branch Controller";
-    private static final String SUB_HEADING = "Main Dialog";
-    private static final String TITLE = MAIN_HEADING + " - " + SUB_HEADING;
-    private static final int FRAME_X_SIZE = 600;
-    private static final int FRAME_Y_SIZE = 300;
-    private Color col = new Color(235, 255, 255);
+    private static final String MAIN_HEADING = "A Test Project";
+    private static final String TITLE = MAIN_HEADING;
+    private static final int FRAME_X_SIZE = 800;
+    private static final int FRAME_Y_SIZE = 600;
+    private Color col = new Color(230, 255, 255);
 
     private TestGui tg = this;
 
@@ -34,7 +37,7 @@ public class TestGui extends JFrame {
 
         FreeLabel l0 = new FreeLabel(MAIN_HEADING, 30, 30, 500, 20, new Font("", Font.BOLD + Font.ITALIC, 20));
 
-        FreeButton b0 = new FreeButton("Exit", 260, 200, 80);
+        FreeButton b0 = new FreeButton("Exit", 360, 500, 80);
 
 
         // This is the control for the Exit-implement button
@@ -86,36 +89,68 @@ public class TestGui extends JFrame {
 
         menuBar.add(menu0);
 
-        JMenu menu1 = new JMenu("GIT Branch");
-        JMenuItem menuItem10 = new JMenuItem("Create New Branch");
+        JMenu menu1 = new JMenu("Edit");
+        JMenuItem menuItem10 = new JMenuItem("Create");
         menu1.add(menuItem10);
-        JMenuItem menuItem11 = new JMenuItem("Push Branch");
+        JMenuItem menuItem11 = new JMenuItem("Read");
         menu1.add(menuItem11);
-        JMenuItem menuItem12 = new JMenuItem("Delete Branch");
+        JMenuItem menuItem12 = new JMenuItem("Update");
         menu1.add(menuItem12);
+        JMenuItem menuItem13 = new JMenuItem("Delete");
+        menu1.add(menuItem13);
 
-        // This is the control for the GIT Branch\Create New Branch menu item
+        // This is the control for the Edit\Create menu item
         menuItem10.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Create New Branch in the GIT Branch menu has been clicked");
+                System.out.println("Menu item - Create in the Edit menu has been clicked");
             }
         });
 
-        // This is the control for the GIT Branch\Push Branch menu item
+        // This is the control for the Edit\Read menu item
         menuItem11.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Push Branch in the GIT Branch menu has been clicked");
+                System.out.println("Menu item - Read in the Edit menu has been clicked");
             }
         });
 
-        // This is the control for the GIT Branch\Delete Branch menu item
+        // This is the control for the Edit\Update menu item
         menuItem12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu item - Delete Branch in the GIT Branch menu has been clicked");
+                System.out.println("Menu item - Update in the Edit menu has been clicked");
+            }
+        });
+
+        // This is the control for the Edit\Delete menu item
+        menuItem13.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - Delete in the Edit menu has been clicked");
             }
         });
 
         menuBar.add(menu1);
+
+        JMenu menu2 = new JMenu("Help");
+        JMenuItem menuItem20 = new JMenuItem("Help");
+        menu2.add(menuItem20);
+        menu2.addSeparator();
+        JMenuItem menuItem22 = new JMenuItem("About");
+        menu2.add(menuItem22);
+
+        // This is the control for the Help\Help menu item
+        menuItem20.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - Help in the Help menu has been clicked");
+            }
+        });
+
+        // This is the control for the Help\About menu item
+        menuItem22.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu item - About in the Help menu has been clicked");
+            }
+        });
+
+        menuBar.add(menu2);
 
     }
 

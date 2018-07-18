@@ -7,6 +7,10 @@ import com.thehutgroup.guicomponents.GuiProperties;
 import com.thehutgroup.guis.GuiHelper;
 import com.thehutgroup.statics.Statics;
 import com.thehutgroup.utilities.FileUtilities;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Scanner;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -16,10 +20,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.util.FileCopyUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
 
 /**
  * Created by Peter Thomson on 13/04/2018.
@@ -31,6 +31,8 @@ public class Application implements CommandLineRunner {
     public static final String FINAL_GUI_DIR = "C:\\GradleTutorials\\ScriptDirectedGui\\GuiSourceFiles\\";
     public static final String RESOURCES_DIR = "C:\\GradleTutorials\\ScriptDirectedGui\\src\\main\\resources\\";
     public static final String FINAL_GUI_TARGET_DIR = "C:\\GradleTutorials\\ScriptDirectedGui\\src\\main\\java\\com\\thehutgroup\\createdgui\\";
+
+    Scanner scanner = new Scanner(System.in);
 
     @Autowired
     private GuiProperties guiProperties;
@@ -52,9 +54,14 @@ public class Application implements CommandLineRunner {
         final String GUI_SCRIPT_FILE = "guiScript";
         final String GUI_SCRIPT_FILE_COPY = "guiScriptLatest";
 
-        if (!strings[0].contains("testGui") && !StringUtils.isEmpty(strings[1])) {
-            if (strings[0].contains("copy")) {
-                if (guiScriptupdated(strings[1] + "\\" + strings[2], GUI_SCRIPT_FILE_COPY)) {
+        System.out.println("strings[0] - " + strings[0]);
+        System.out.println("strings[1] - " + strings[1]);
+
+        //breakPoint("BP1");
+
+        try {
+            if (!strings[0].contains("testGui") && !StringUtils.isEmpty(strings[1])) {
+                if (strings[0].contains("copy")) {
                     System.out.println("ScriptDirectedGui: Change Detected - Creating GUI Properties and Compiling!");
                     createGuiProperties(strings[1], strings[2]);
                     System.out.println("ScriptDirectedGui: Copying compiled GUI in to TestGui class!");
@@ -68,19 +75,34 @@ public class Application implements CommandLineRunner {
                         System.exit(0);
                     }
                     copyGuiScript(strings[1] + "\\" + strings[2], GUI_SCRIPT_FILE_COPY);
+                    //breakPoint("BP2");
                     System.exit(0);
-                } else {
-                    if (strings[0].contains("run")) {
-                        System.out.println("ScriptDirectedGui: Testing GUI!");
-                        testGui();
-                    }
+                } else if (strings[0].contains("run")) {
+                    System.out.println("ScriptDirectedGui: Testing GUI!");
+                    testGui();
+                    //breakPoint("BP3");
                 }
+            } else {
+                testGui();
+                breakPoint("BP4");
             }
-        } else {
-            testGui();
-        }
 
-        syncComponents();
+            syncComponents();
+            //breakPoint("BP5");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //breakPoint("BPException");
+        }
+    }
+
+    private void breakPoint(String message) {
+        int i = 0;
+        System.out.println(message);
+        while (i == 0) {
+            System.out.print("Please enter a value - ");
+            i = scanner.nextInt();
+        }
     }
 
     private void syncComponents() throws IOException {
