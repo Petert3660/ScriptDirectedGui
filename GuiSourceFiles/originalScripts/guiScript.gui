@@ -4,9 +4,9 @@ dimension: xsize=1000, ysize=900
 
 backgroundcolor: value=235, 255, 255
 
-heading: value=BAU Dashboard
+heading: value=Example Dashboard
 
-subheading: value=GIT New Branch
+subheading: value=Main Dashboard
 
 menus:
     [File: Open, Close, Exit]

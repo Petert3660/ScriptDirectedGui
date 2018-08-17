@@ -1,6 +1,6 @@
 // This is a test GUI Script which creates a small dialog for entering data
 
-dimension: xsize=550, ysize=300
+dimension: xsize=600, ysize=300
 
 backgroundcolor: value=230, 255, 255
 
